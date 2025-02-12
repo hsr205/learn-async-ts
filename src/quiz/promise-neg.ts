@@ -45,7 +45,6 @@ async function findNegativeValuesByRow(): Promise<number> {
 
 
 findNegativeValuesByRow().then(() => {
-    // console.log(`${value}`)
     console.log(`Executing findNegativeValuesByRow() method`)
 }).catch((error) => {
     console.error(error);
