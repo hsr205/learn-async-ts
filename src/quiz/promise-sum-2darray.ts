@@ -16,9 +16,6 @@ function promiseSum2DArray(arr: number[][], rowIndex: number): Promise<number> {
         setTimeout(() => {
             let sum = 0;
             let rowCount = 0;
-            // for (let i = 0; i < rowIndex; i++) {
-            //     console.log(arr[i]);
-            // }
 
             arr.forEach((row) => {
                 if (rowCount === rowIndex) {
