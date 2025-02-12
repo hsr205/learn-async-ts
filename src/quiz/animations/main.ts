@@ -36,8 +36,10 @@ async function runAnimation(): Promise<void> {
     await animateImages()
 }
 
-runAnimation().then(r => {
-
+runAnimation().then(() => {
+    console.log(`Running animations...`)
+}).catch((error) => {
+    console.error(error);
 })
 
 

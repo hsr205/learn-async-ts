@@ -86,7 +86,10 @@ function runAnimation() {
         });
     });
 }
-runAnimation().then(function (r) {
+runAnimation().then(function () {
+    console.log("Running animations...");
+}).catch(function (error) {
+    console.error(error);
 });
 // if(alice10 && alice20 && alice30) {
 //   // Promise chain
