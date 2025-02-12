@@ -42,37 +42,4 @@ runAnimation().then(() => {
     console.error(error);
 })
 
-
-// if(alice10 && alice20 && alice30) {
-//   // Promise chain
-//   alice10.animate(aliceTumbling1, aliceTiming1).finished
-//     .then(() => {
-//         return alice20
-//                 .animate(aliceTumbling1, aliceTiming1)
-//                 .finished;
-//     })
-//     .then(() => {
-//       return alice30
-//               .animate(aliceTumbling1, aliceTiming1)
-//               .finished;
-//     })
-//     .catch((err) => alert(`Error when promising ... ${err.message}`));
-// }
-// else{
-//   console.warn("#alice not found");
-// }
-
-// alice10
-//     .animate(aliceTumbling1, aliceTiming1)
-//     .finished
-//     .then((res) => {
-//         console.log(res);
-//         alice20
-//             .animate(aliceTumbling1, aliceTiming1)
-//             .finished
-//             .then((res) => {
-//                 console.log(res);
-//                 alice30.animate(aliceTumbling1, aliceTiming1);
-//             })
-//     });
   
