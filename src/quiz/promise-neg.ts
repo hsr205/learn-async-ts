@@ -10,26 +10,18 @@ function promiseNegativeValues2DArray(arr: number[][], rowIndex: number): Promis
         }
 
         if (rowIndex > arrLength - 1) {
+
             reject(`Index passed ${rowIndex} is invalid`);
         }
 
-
         setTimeout(() => {
-            let sum = 0;
-            let rowCount = 0;
 
-            arr.forEach((row) => {
-                if (rowCount === rowIndex) {
-                    row.some((val: number) => {
-                        if (val < 0) {
-                            console.log(`Negative value found in row: ${rowIndex}`);
-                            console.log(`Negative value found: ${val}`);
-                        }
-                    })
+            arr[rowIndex].some((val: number) => {
+                if (val < 0) {
+                    console.log(`Negative value found in row: ${rowIndex}`);
+                    console.log(`Negative value found: ${val}`);
                 }
-                rowCount++;
-            })
-            resolve(sum);
+            });
         }, 0);
 
     });
@@ -43,20 +35,18 @@ const array2D_3 = [
 ];
 
 
-const findNegativeValuesByRow = promiseNegativeValues2DArray(array2D_3, 0).then(() => {
+async function findNegativeValuesByRow(): Promise<number> {
 
-        promiseNegativeValues2DArray(array2D_3, 1).then(() => {
+    let values = await Promise.all([promiseNegativeValues2DArray(array2D_3, 0), promiseNegativeValues2DArray(array2D_3, 1), promiseNegativeValues2DArray(array2D_3, 2)])
 
-            promiseNegativeValues2DArray(array2D_3, 2).then(() => {
+    return values.reduce((sum, item) => sum + item, 0);
 
-            }).catch((err) => {
-                console.log(err);
-            })
+}
 
-        }).catch((err) => {
-            console.log(err)
-        })
-    }
-).catch((err) => {
-    console.log(err)
-})
+
+findNegativeValuesByRow().then(() => {
+    // console.log(`${value}`)
+    console.log(`Executing findNegativeValuesByRow() method`)
+}).catch((error) => {
+    console.error(error);
+});
